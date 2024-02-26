@@ -1,0 +1,112 @@
+Pull in data from multiple sources to determine which games are DRM-free and which ones are not
+
+- have an application that people can use to search metadata about a game to see if it's possible to get it on a DRM-free format or not.
+
+
+DRM definition:
+    - requires any kind of 3rd party launcher to run
+    - on Steam: requires Steam's launcher to run
+    - online: cannot be played offline (including check-ins)
+
+DRM free:
+    - game can be purchased one time, backed up,
+    and used on multiple computers
+
+
+Why: I reject the idea that "buying" a game means "purchasing a license",
+which in essence means my purchase can be revoked at any time by the company I bought it from.
+I don't like this idea, and I want to educate myself and others on games that do not
+promote this policy, and show people where to get them.
+
+I also want to find the statistics of which games are truly DRM-free, and which ones are not.
+
+This will be for PC digital games, as there is not really an option for digital-games without DRM on consoles. 
+The best option there is to buy a physical copy.
+
+I want to do this to help myself and my friends with this.
+
+
+Explain why this matters:
+    - If Steam went out of business for any reason, all of the games that you purchased would be lost if you needed to re-download them.
+
+
+- write automated tests
+- write good logging/error messages
+
+
+- web scraping: https://www.pcgamingwiki.com/wiki/The_big_list_of_DRM-free_games_on_Steam
+- 
+
+
+- show what playable on: Windows (and version), MacOS (and version), Linux
+
+- Epic Games Store
+- Xbox PC Game Pass
+- Steam
+- GOG.com
+- Itch.io
+- ZOOM Platform
+
+DRM types:
+    https://www.pcgamingwiki.com/wiki/Digital_rights_management_(DRM)#DRM-free
+
+    - Disc Check
+    - CD Key
+    - Online Activation
+    - Activation Limit
+    - Account Based
+    - Always Online
+    - Physical (makes sense)
+    - USB Dongle (makes sense)
+
+
+    - Middleware
+        - ActControl
+        - Arxan Anti-Tamper
+        - Battle.net
+        - CopyLok
+        - Denuvo Anti-Tamper
+        - Epic Online Services
+        - Games for Windows - LIVE (retired)
+        - LaserLock
+        - Microsoft Store
+        - Origin
+
+        - ProtectDISC Software
+        - Ring PROTECH
+        - SafeDisc
+
+-------------------------------------------------------------------------------------------------------
+
+sources:
+    - company's website
+    - 
+
+
+
+Example:
+    - type in video game name
+        - query should be LIKE, not necessarily exact
+
+            - Timesplitters
+                - only mention official store fronts
+
+
+Itch.io: no DRM
+    - check the download link just in case this changes
+    - offer as an alternative if the game is available there
+
+GOG.com: no DRM
+    - check the download link just in case this changes
+    - offer as an alternative if the game is available there
+
+
+Check to see if game has specific DRM
+    - Denuvo
+
+
+https://www.howtogeek.com/813209/psa-not-all-steam-games-have-drm-heres-how-to-tell/
+
+Will help: Check to see if game exists on Steam without DRM
+    - inform people that this game is not owned by you. You're free to pay for it, but it can be removed by the company per the license agreement
+        - show the license agreement
