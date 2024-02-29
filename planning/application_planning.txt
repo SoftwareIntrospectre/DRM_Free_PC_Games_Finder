@@ -1,0 +1,45 @@
+User looks up a list of game by title.
+    - returns an image of the game, year released, genre, and is_drm_free (Yes or No).
+
+    By the end of this, I want this to be an application where the user can search for games based on title, genre, is_drm_free (Yes/No).
+
+Will build a Flask application (Python) to do this.
+
+
+
+Why Flask?
+
+    Flask is a lightweight and flexible web framework for Python.
+    It's well-suited for building small to medium-sized web applications.
+    Flask integrates well with other libraries and tools commonly used in Python ecosystem.
+
+Steps to Build with Flask:
+
+    Setup Flask Application:
+        Initialize a Flask project structure using Flask's command-line interface or manually.
+        Define routes to handle different URL paths and HTTP methods.
+
+    Integrate with Data Engineering Backend:
+        Use Flask to create endpoints that communicate with my data pipeline and database.
+        Implement logic to fetch and serve game data based on user queries (title, genre, is_drm_free).
+
+    HTML Templates for UI:
+        Create HTML templates to structure the user interface.
+        Use Jinja2 templating engine (built into Flask) to dynamically generate HTML content based on data from the backend.
+
+    Implement Search Functionality:
+        Design a search form where users can input their search criteria (title, genre, is_drm_free).
+        Handle form submissions in Flask routes and pass the search parameters to the backend.
+
+    Display Search Results:
+        Render search results dynamically on the webpage using Flask templates.
+        Format and style the results for better user experience.
+
+    Enhance User Experience:
+        Implement pagination to handle large result sets.
+        Add sorting and filtering options to refine search results.
+
+    Deployment:
+        Deploy my Flask application to a web server. You can use platforms like Heroku, AWS, or DigitalOcean.
+        Configure web server settings and set up a domain name if needed.
+

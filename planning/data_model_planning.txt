@@ -1,0 +1,56 @@
+1. Identify Entities:
+
+    Determine the main entities in your domain, such as games, genres, platforms, etc.
+    Consider the attributes associated with each entity and how they relate to one another.
+
+2. Normalize Data:
+
+    Apply normalization techniques to minimize data redundancy and maintain data integrity.
+    Break down entities into smaller, logically related tables to reduce data duplication.
+
+3. Handle Relationships:
+
+    Define relationships between entities using primary keys and foreign keys.
+    Consider the cardinality of relationships (one-to-one, one-to-many, many-to-many) and represent them accordingly.
+
+4. Incorporate Hierarchies:
+
+    If your data includes hierarchical relationships (e.g., genres nested within categories), design the model to reflect these structures.
+    Decide how to represent hierarchies efficiently for querying and analysis.
+
+5. Account for Variability:
+
+    Anticipate variations in data structure and content across different sources.
+    Design the model to accommodate diverse data formats and standards.
+
+6. Capture Metadata:
+
+    Include fields to capture metadata such as timestamps, source identifiers, and data quality indicators.
+    Ensure traceability and auditability of the data throughout the pipeline.
+
+7. Support Query Patterns:
+
+    Analyze the typical queries users will perform and optimize the data model accordingly.
+    Denormalize data where necessary to improve query performance for common use cases.
+
+8. Consider Scalability:
+
+    Design the data model to scale gracefully as the volume of data grows.
+    Partition large datasets and distribute them across multiple tables or databases if needed.
+
+9. Plan for Flexibility:
+
+    Build flexibility into the data model to accommodate future changes and additions.
+    Use design patterns like entity-attribute-value (EAV) for handling dynamic attributes if required.
+
+10. Ensure Data Consistency:
+
+    Enforce data integrity constraints using database constraints, triggers, or application logic.
+    Implement mechanisms for data validation and cleansing to maintain data quality.
+
+11. Document the Design:
+
+    Document the rationale behind the data model design decisions.
+    Provide a clear schema definition with explanations for each table and field.
+
+By considering these factors, you can create a well-designed data model that supports the requirements of your Data Engineering application and facilitates efficient data processing and analysis.
