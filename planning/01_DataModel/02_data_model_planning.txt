@@ -1,0 +1,20 @@
+Notes for the data model. Will split into separate facts/dimensions after determining requirements
+
+source:
+    - SourceID
+        - auto incrementing ID
+
+    - SourceName
+        - Steam
+        - GOG
+        - Itch.io
+
+    - SourceType
+        - API
+        - WebScraped
+
+game:
+    - GameID
+        - auto-incrementing ID
+    - GameName
+    - Game Genre
