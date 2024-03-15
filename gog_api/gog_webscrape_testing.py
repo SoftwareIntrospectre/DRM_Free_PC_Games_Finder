@@ -1,29 +1,37 @@
-# import requests
-# from bs4 import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup
 
-# # URL of the webpage to scrape
-# url = "https://gogapidocs.readthedocs.io/en/latest/gameslist.html?highlight=id"
+url = "https://gogapidocs.readthedocs.io/en/latest/gameslist.html"
 
-# # Send a GET request to the webpage
-# response = requests.get(url)
+response = requests.get(url)
 
-# # Parse the HTML content using BeautifulSoup
-# soup = BeautifulSoup(response.content, "html.parser")
+# using lxml because recommended by documentation as faster (upside: faster, downside: has external C dependency)
+soup = BeautifulSoup(response.content, "lxml")
 
-# # Find all elements with the class "highlight-python"
-# games_elements = soup.find_all("div", class_="highlight-python")
+# used to see the HTML structure of the web page
+print(soup.prettify())
 
-# # Initialize an empty list to store the dictionaries
-# games_list = []
+# found the table containing the relevant data
+game_data_table = soup.find("table", class_="docutils")
 
-# # Loop through each game element
-# for game_element in games_elements:
-#     # Extract the Game Name and ID from the element text
-#     game_name = game_element.find("span", class_="s2").text.strip()
-#     game_id = game_element.find("span", class_="mi").text.strip()
-    
-#     # Create a dictionary for the current game and append it to the list
-#     games_list.append({"GameName": game_name, "ID": game_id})
+print(game_data_table)
 
-# # Print the list of dictionaries
-# print(games_list)
+games_names_and_ids_dict_list = []
+
+# looking for all rows except for the first one
+for row in game_data_table.find_all("tr")[1:]:
+    columns = row.find_all("td")
+
+    # game name is the first column in the table and remove all tags
+    game_name = columns[0].get_text(strip=True)
+
+    # game id is the second column in the table and remove all tags
+    game_id = columns[1].get_text(strip=True)
+
+    # print(game_name)
+    # print(game_id)
+
+    # add a dictionary that maps the game name to the first column's value, and the game id to the second column's value for every row.
+    games_names_and_ids_dict_list.append({"GameName": game_name, "GameId": game_id})
+
+print(games_names_and_ids_dict_list)
