@@ -1,0 +1,40 @@
+# Ubuntu Linux
+
+# terminal setup commands 
+
+# refresh packages list
+sudo apt update
+
+# installing to allow for more functionality than base PostgreSQL (indexing, advanced data types, etc.)
+sudo apt intall postgresql postgresql-contrib
+
+# check status of PostgreSQL using service manager
+systemctl status postgresql
+
+# starts PostgreSQL
+sudo systemctl start postgresql
+
+# creates the SQL terminal 
+sudo -u postgres psql
+
+    # SQL commands
+    CREATE DATABASE drm_free_games_db;
+
+    # change to this database
+    \c drm_free_games_db
+
+
+    CREATE TABLE test_db AS (test_id INT, test_name VARCHAR(200));
+    INSERT INTO test_db(test_id, test_name) VALUES(0, 'test1');
+    SELECT * from test_db;
+
+        # result
+        test_id | test_name 
+        ---------+-----------
+            0 | test1
+        (1 row)
+
+exit
+
+# python command to interact with PostgreSQL from Python
+pip3 install psycopg2
