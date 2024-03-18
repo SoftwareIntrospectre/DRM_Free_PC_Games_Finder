@@ -1,0 +1,10 @@
+I need to determine which DRM are being used for which games.
+
+I'll need a list of games from steam as a first step, then I'll need to find a way to detect which DRM are associated with each game. 
+Accuracy and relevence of each game is important here, as out-of-date data will send the wrong message.
+
+Example: if a game had Denuvo at one point, and no longer does today: then it should be flagged as not having Denuvo (maybe could have a "did have it before" flag?)
+    - can use the Steam listing page?
+
+
+    Use Sonic Frontiers as an example, as that has Denuvo listed on the Steam page.
