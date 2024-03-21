@@ -1,0 +1,129 @@
+Project Milestones
+======================================================================================================================================================================================================================================================
+Overall Goal: Create software that accurately detects which games on Steam have DRM-free alternatives on other platforms
+
+======================================================================================================================================================================================================================================================
+What are those other platforms?
+	- GOG.com
+	- Itch.io
+	- ZOOM Platform
+	- Developer Websites
+	- Humble Bundle* (it depends, may need to check this)
+	- Steam* (it depends, may need to check this)
+	
+	(research this)
+	
+======================================================================================================================================================================================================================================================
+
+What do I want?
+	- To create an application that takes in data from multiple sources of video game data on PC
+		- Valve: Steam ---> first stop (most popular online games store) ---> database table
+		- DRM-Free Vendors: database table containing these vendors
+			- join on GameName and GameDeveloper (make Primary Key based on this combination)
+			
+			
+			Steam
+			------
+			PK: VideoGamePK (Composite: VideoGameID, DeveloperID)
+			
+			** think about the Data Model for this kind of thing. What kind of normalization works best here? What makes the most sense to do?
+			
+			
+			
+	
+			VideoGames_Fact
+			- VideoGameID (PK)
+			
+			VideoGames_Dimension
+			- VideoGameName
+			- DeveloperID (FK)
+			- VideoGameID (FK)
+
+			Developers_Fact
+			- DeveloperID (PK)
+			
+			Developers_Dimension
+			- DeveloperName
+			- DeveloperID (FK)
+			- PublisherID (FK)
+			
+			Publishers_Fact
+			- PublisherID (PK)
+			
+			Publishers_Dimension
+			- PublisherName
+			- PublisherID (FK)
+			- DeveloperID (FK)
+			
+			DigitalRightsManagementSystems_Fact
+			DrmID (PK)
+			
+			DigitalRightsManagementSystems_Dimension
+			- DrmName
+			- DrmID (FK)
+			- PublisherID (FK)
+			- DeveloperID (FK) <--- maybe
+
+			TODO: Make a Conceptual, Logical, and Physical Data Model. Document the process.
+			
+
+======================================================================================================================================================================================================================================================
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Why?
+
+Digital Rights Management (DRM) - definition: software or technology used to control access of copyrighted material.
+
+Why does this matter: Video games are going towards an all-digital future, but there is not enough legislation that protects people's purchasing rights. There have been cases where companies revoke digital purchases
+from buyers' devices
+	- Konami with the PT demo on PS4/Xbox One
+	- Steam blocking access to the games they purchased on Steam (account ban)
+	- any console manufacturer (Nintendo, Sony, Microsoft) from blocking access to the games they buy** (**need to verify this)
+	
+	
+"What about Physical?"
+	- Having a Physical Copy is ideal because it can be archived, resold, etc. ...but this takes up physical space, and companies are moving away from it. Don't rely on this forever because we can't count on companies to do this.
+	
+======================================================================================================================================================================================================================================================
+What are types of DRM used?
+- Disc Check
+- CD-Key
+- Online Activation
+- Activation Limit
+- Account-Based
+- Always Online
+- Cloud Service
+- Physical
+- USB Dongle
+
+======================================================================================================================================================================================================================================================
+What are types of Middleware DRM?
+
+	- ActControl
+	- Arxan Anti-Tamper
+	- Battle.net
+	- CopyLok
+	- Dennuvo Anti-Tamper
+	- Epic Online Services
+	- Xbox Game Pass
+	- Laser Lock
+	- Microsoft Store
+	- Origin
+	
+	(find more later) ---> maybe use database for DRM vendors (Middleware)
+
+======================================================================================================================================================================================================================================================
+What are types of Anti-Cheat?
+
+	- BattlEye
+	- Denuvo Anti-Cheat
+	- Easy Anti-Cheat
+	- nProtect GameGuard
+	- PunkBuster
+	- Valve Anti-Cheat
+	
+	(find more later) ---> maybe use database for DRM vendors (Anti-Cheat)
+
+======================================================================================================================================================================================================================================================
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
