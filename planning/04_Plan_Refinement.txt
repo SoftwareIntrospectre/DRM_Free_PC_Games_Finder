@@ -1,0 +1,121 @@
+I want to create the following:
+
+An app that ingests data from Steam, GOG.com, Itch.io, and the developer websites....so that people can find alternatives to DRM-based games.
+
+I also want this to be a Data Engineering project, where I do the following:
+	- grab data from multiple sources 
+		- Steam API
+		- GOG.com API
+		- Itch.IO API
+			OBJECTIVE: Joining data from two separate REST APIs
+		
+	- orchestrate them to load 
+		- Airflow?
+		
+	- store them in a Cloud database
+		- AWS?
+		
+	- design and maintain the Data Architecture
+		- Database tables design
+		- Stored Procedures
+		- Views
+		- Triggers
+		- etc.
+		
+	- cleanse the data
+		- Spark? Python? SQL?
+		
+	- load it to a web page
+	
+	- Web Page that has:
+		- list of top 100 games based on Steam Reviews that are also DRM-free
+			-SELECT TOP 100 DENSE_RANK(steam_game_rating desc, is_drm_free desc) as game_rank, game_name, game_developer_name, game_publisher_name, steam_name, drm_free_platform_name_1, drm_free_platform_name_2
+		- include icons of each game platform
+			- Steam
+			- GOG.com
+			- Itch.io
+			- Developer Website (www.) ---> may need custom icon or web scraping for developer logo
+			
+		- search functionality to find a specific game
+			- algorithms for optimal searching (fast, etc.)
+			
+			
+		- can support concurrent users
+		
+	- good data engineering practices
+		- Design Efficient and Scalable Data Pipelines
+		- Be Mindful Where the Heavy Lifting Happens ---> isolate from the rest of the pipeline
+		- Automate Data Pipelines and Monitoring
+		- Keep Data Pipelines Reliable
+		- Embrace Data Ops
+		- Focus on Business Value
+		
+	- good software engineering practices
+		- KISS (Keep It Simple, Stupid)
+		- YAGNI (Ya Ain't Gonna Need It)
+		- DRY (Don't Repeat Yourself)
+		- code reliability
+		- code efficiency (Big O)
+		- easy to test / refactor
+		- automated testing
+		- version control
+		- CI/CD 
+
+
+
+DataOps / DevOps:
+    - Keep your secrets and data store credentials out of the code. 
+    - Use secrets managers and vaults to store encrypted keys. 
+    - Safely store credentials in credential stores, and use managed identities wherever supported. 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- grab data from multiple sources 
+	- Steam API
+	- GOG.com API
+	- Itch.IO API
+		OBJECTIVE: Joining data from two separate REST APIs
+		
+		
+- Data Modeling
+	- think about the relationships, and how to model them effectively
+			
+			
+Steam API
+- store the API credentials into environment variables
+- authenticate using the environment variables (don't store in the code)
+
+
+GOG.com API
+- store the API credentials into environment variables
+- authenticate using the environment variables (don't store in the code)
+
+Itch.IO API
+- store the API credentials into environment variables
+- authenticate using the environment variables (don't store in the code)
+
+
+Consider using AWS S3 (Simple Storage Solution) as a Data Lake to dump API data.
+Consider using AWS Lambda / Airflow / Cron to kick off jobs
+	- AWS Lambda can pull from an API without having to provision an entire server (cheaper / more cost-efficient) ---> do once a day (YES)
+Consider using AWS Athena for querying (Serverless Query Engine) ---> can query from various sources (S3?)
+IAM (Identity Access Management) ----> determine if needed for this project or not (grants/user groups/etc)
+Consider using Amazon RDS (Relational Database System) ---> used to run MySQL, Postgres, SQL Server, etc. in the Cloud)
+Consider using DataBricks for Spark usage tool ---> determine if needed or not
+(don't need streaming data for this project)
+
+
+Think of using Snowflake as Data Warehouse
+			
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Airflow Configuration 
+---> ingest data from APIs
+	---> parallel: Steam  ----------------> Store data in Database
+	---> parallel: GOG.com----------------> Store data in Database
+	---> parallel: Itch.io----------------> Store data in Database
+		----> once all 3 are done: Kick off next DAG -------------------> Amazon S3 bucket (staging) ------> Snowflake (Data Warehouse) ---> Django front-end
+		
+		

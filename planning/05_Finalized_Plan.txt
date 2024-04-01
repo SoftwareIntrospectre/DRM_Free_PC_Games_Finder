@@ -1,0 +1,92 @@
+Milestone 1: Project Setup, Data Collection, and Automated Testing (Deadline: April 22, 2024)
+
+    Setup:
+        Research and understand Steam API.
+        Research and understand Itch.io API.
+        Research and understand GOG.com API.
+        Set up development environment (local or cloud-based).
+        Set up version control system (e.g., Git).
+
+    Data Collection:
+        Implement data extraction from Steam API.
+        Implement data extraction from Itch.io API.
+        Implement data extraction from GOG.com API.
+
+    Automated Testing:
+        Set up testing framework (e.g., pytest).
+        Write unit tests for Steam data extraction.
+        Write unit tests for Itch.io data extraction.
+        Write unit tests for GOG.com data extraction.
+        Set up continuous integration (CI) pipeline.
+
+Milestone 2: Data Integration, Transformation, and Quality Checks (Deadline: May 6, 2024)
+
+    Data Integration:
+        Design data integration logic.
+        Implement data integration from Steam, Itch.io, and GOG.com.
+
+    Data Transformation:
+        Design data transformation logic.
+        Implement data transformation for standardization.
+        Implement data transformation for normalization.
+
+    Quality Checks:
+        Design data quality checks.
+        Implement automated integration tests.
+        Set up data validation checks.
+
+Milestone 3: Containerization, Storage Setup, and Loading (Deadline: May 20, 2024)
+
+    Containerization:
+        Dockerize data extraction functions.
+        Dockerize data transformation functions.
+        Dockerize data loading functions.
+
+    Storage Setup:
+        Set up S3 bucket for storing raw data.
+        Set up S3 bucket for storing processed data.
+        Create Snowflake account.
+
+    Data Loading:
+        Implement loading of transformed data into S3.
+        Implement loading of transformed data into Snowflake.
+
+    Documentation:
+        Document containerization process.
+        Document data loading procedures.
+        Document storage configurations.
+
+Milestone 4: Frontend Development, Integration Testing, and Documentation (Deadline: June 3, 2024)
+
+    Frontend Development:
+        Choose frontend framework (e.g., Django).
+        Set up frontend project structure.
+        Design UI wireframes.
+        Implement frontend components.
+
+    Integration Testing:
+        Set up end-to-end integration tests.
+        Write integration tests for frontend-backend communication.
+        Execute integration tests.
+
+    Documentation:
+        Document frontend development process.
+        Document integration testing procedures.
+
+Milestone 5: User Acceptance Testing, Deployment, and Final Documentation (Deadline: June 15, 2024)
+
+    User Acceptance Testing:
+        Prepare UAT plan.
+        Conduct UAT sessions.
+        Address feedback and issues.
+
+    Deployment:
+        Deploy application to development environment.
+        Deploy application to staging environment.
+        Deploy application to production environment.
+
+    Final Documentation:
+        Finalize user guides.
+        Finalize technical documentation.
+        Finalize architectural overview.
+        Prepare for project presentation or demo.

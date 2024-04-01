@@ -1,6 +1,187 @@
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Objectives:
+	1. Define project final idea, in detail
+	2. Break that down into milestones
+	3. Break milestones down into tasks
+	4. Set deadlines for tasks and milestones
+	5. Do the work.
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Project Start: Wednesday March 20, 2024
+Project Deadline: Wednesday May 1, 2024 (5 weeks)
+
+
+Decide What I Want To Learn:
+	- Setting up a complete data pipeline using multiple data sources (including API and Web Scraping)
+	
+Choose A Product That I Would Use:
+	- A DRM-free Game Finder
+	
+Not Too Hard But Not Too Easy:
+	- Going to push myself on this one, to see what my limits are
+	
+	
+Break It Into Small Deliverable Chunks:
+	- Yep, that's the idea
+	
+Make It A Habit:
+	- Monday, Tuesday, Thursday, Friday for 1 hour
+	
+	
+Perfection Is My Enemy:
+	- I am going to make finish this project.
+
+Week 1: Organize and Finalize Project Plan
+Week 2: 
+Week 3:
+Week 4:
+Week 5:
+Week 6: Testing and Polish
+
+
+Extraction Layer
+Transformation Layer
+Load Layer
+Display Layer = Flask
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	Planned Flow:
+	
+		1st Screen: 
+			Start with list of most popular games on Steam (user rating + release date) that have DRM-free versions. Do the top 25-30 for this on the first page (maybe up to 100?)
+			List Numerically
+				Have game metadata, price on Steam, and price on other platforms
+					- need to have accurate pricing from all sources (will need orchestration to make this work (update the databases for this)
+						- have a dashboard that pulls data from the databases into views, and push those to the dashboard
+							-- TO LEARN: 
+								- How to orchestrate a job in Airflow (or Cron, whatever's simpler this time)
+								- How to make a basic dashboard in Python
+								
+							-- TO DO:
+								- pull in data from APIs into the database
+								- data validation during the ingestion process
+									- base the process on what I know so far: (Use Python to validate rows, and do some pre-cleaning ---> grammar)
+										- use SQL for data deduplication, staging, historical (think about Type 2 Dimension Tables)
+									- probably based on SQL, since that's more optimized for data (won't need RAM like Python)
+									
+									
+									
+	EXT ---> HISTRAW 
+			(error) ----> ERRTRAP
+			(no error) ----> STAGE
+				---> ALL
+				
+	ALL ---> View --> Destination Table ----> Dashboard
+	
+	Django? Flask?
+	
+	Flask  --> integrated unit testing (sweeet) ---> can use for small apps
+	
+	Django --> excellent documentation, tested, highly secure (cool), rapid development, scalable
+		+ saves time at every stage (ideation to release)
+		+ advanced features
+		+ protects against errors + built-in security
+		+ traffic
+		
+		- URL routing pattern
+		- monol
+		
+		
+	Django vs. Flask ---> Flask for ease-of-use. Maybe Django for scalability
+
+	
+	
+		Website for this
+	
+	store in Container?
+	use requirements.txt file
+							
+							
+							
+Data Cleansing:
+	https://acho.io/blogs/the-ultimate-guide-to-data-cleaning-in-sql
+			
+		
+		
+Data Prep: 8-step data cleaning process that will help you prepare your data:
+    * Remove irrelevant data
+    * Remove duplicate data
+    * Fix structural errors
+    * Do type conversion
+    * Handle missing data
+    * Deal with outliers
+    * Standardize/Normalize data
+    * Validate data
+		-- do this with SQL as much as possible
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+Overall Goal: Create software that :
+	* accurately detects which games on Steam have DRM-free alternatives on other platforms
+	* Has a user interface that shows a data visualization of how many games are DRM-free compared to DRM-based
+	* Has a search functionality to find games (based on metadata)
+	* Single game has a unique page that shows:	
+		* game metadata
+			* game photo
+			* gameName
+			* gameGenre1
+			* gameGenre2
+			* releaseDate
+			* developerName
+			* publisherName
+			
+		* DRM metadata
+			* has3rdPartyDrm (Yes, No)
+				* if yes (meaning it's active right now)
+					* 3rdPartyDRMName
+					* 3rdPartyDrmType
+					
+				* if no:
+					* had3rdPartyDRM (drmDeactivatedDate)
+					
+		Photo with Icons to different stores
+			- Steam --> uses icon. Clicking on it moves to Steam Store
+			- GOG --> uses icon. Clicking on it moves to GOG Store
+			- Steam --> uses icon. Clicking on it moves to Steam Store
+
+					
+					
+					
+					
+			Example:
+			
+			
+			Objectives:
+				1. Create way to find games via searching
+				
+				
+			
+			Milestones:
+				1. Make a mock-up of the app in detail
+				2. Make the data model (conceptual, logical, physical)
+				3. Plan my functionality (logical)
+				4. Make a flowchart of the functionalty (code-based and dynamic)
+				4. Make a proof-of-concept
+				5. Refactor with good data structures / algorithms
+				6. 
+
+
+
 Project Milestones
 ======================================================================================================================================================================================================================================================
-Overall Goal: Create software that accurately detects which games on Steam have DRM-free alternatives on other platforms
 
 ======================================================================================================================================================================================================================================================
 What are those other platforms?
@@ -38,6 +219,12 @@ What do I want?
 			- VideoGameName
 			- DeveloperID (FK)
 			- VideoGameID (FK)
+			- Genre1
+			- Genre2
+			- StandardPrice
+			- EstimatedTimeToBeat_Main
+			- EstimatedTimeToBeat_SideContent
+			- EstimatedTimeToBeat_Total
 
 			Developers_Fact
 			- DeveloperID (PK)
@@ -63,6 +250,16 @@ What do I want?
 			- DrmID (FK)
 			- PublisherID (FK)
 			- DeveloperID (FK) <--- maybe
+			
+			
+			PcOsFact
+			- OsID (PK)
+			
+			PcOsDimension
+			- OsName
+			- OsID (FK)
+			- OsOwner
+			
 
 			TODO: Make a Conceptual, Logical, and Physical Data Model. Document the process.
 			
@@ -126,4 +323,17 @@ What are types of Anti-Cheat?
 ======================================================================================================================================================================================================================================================
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+1. Data Sourcing
+2. Data Ingestion ----> Airflow
+
+3. Data Profiling
+
+4. Data Transformation ---> Python and SQL
+
+5. Data Visualization ----> Dashboard? 
+
+6. Data Architecture
