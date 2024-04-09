@@ -55,7 +55,7 @@ def get_request(url, parameters=None):
         return get_request(url, parameters)
 
 
-url = "https://steamspy.com/api.php"
+url = "https://steamspy.com/api.php" # updates every 24 hours, so no need to do this more than once a day
 parameters = {"request": "all"}
 
 # request 'all' from steam spy and parse into dataframe
@@ -141,7 +141,7 @@ def process_batches(parser, app_list, download_path, data_filename, index_filena
 
         rel_path = os.path.join(download_path, data_filename)
 
-        # writing app data to file
+        # writing app data to file: append new data 
         with open(rel_path, 'a', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=columns, extrasaction='ignore')
 
