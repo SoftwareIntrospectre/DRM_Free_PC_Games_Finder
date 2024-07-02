@@ -1,0 +1,23 @@
+Revisiting this after a break. Let's determine what's a reasonable scope, and what problems I need to solve.
+
+
+Data Modeling (The process of conceptualizing and visualizing how data will be captured, stored, and used.)
+    1. Investigate the source data and determine the relationships
+    2. Consider how to efficiently use those relationships, and use a data model for it
+    3. Test out this with sample data
+    4. Get this going, then refine over time.
+
+
+ETL / ELT
+    1. Get source data (API calls, files, etc.)
+    3. ingest source data (staging environment) -- Amazon S3 bucket
+    4. clean source data - Python and SQL
+    5. load source data into data modeled Tables -- Snowflake
+
+
+Data Ops
+    1. Create automated data quality checks
+    2. Create alerts around data quality checks (missing data, incomplete data, etc.)
+
+
+First Step: Clearly define what data I'm using, and limit the project to that scope. Get to know the data first, then build off of that.
